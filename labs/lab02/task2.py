@@ -22,9 +22,7 @@ def _resolved(path: Path) -> Path:
     return path.expanduser().resolve()
 
 
-def scan_directory(
-    directory: Path, excluded_paths: set[Path]
-) -> dict[str, FileRecord]:
+def scan_directory(directory: Path, excluded_paths: set[Path]) -> dict[str, FileRecord]:
     root = _resolved(directory)
     if not root.is_dir():
         raise NotADirectoryError(f"Каталог не знайдено: {root}")
@@ -82,7 +80,7 @@ def load_baseline(baseline_path: Path) -> dict[str, FileRecord]:
     payload = json.loads(_resolved(baseline_path).read_text(encoding="utf-8"))
     files = payload if isinstance(payload, list) else payload.get("files")
     if not isinstance(files, list):
-        raise ValueError("Некоректний baseline: поле 'files' має бути списком")
+        raise TypeError("Некоректний baseline: поле 'files' має бути списком")
 
     records = {}
     for item in files:

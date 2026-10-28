@@ -10,7 +10,7 @@ import re
 from collections.abc import Iterable
 from dataclasses import dataclass
 from datetime import datetime, timedelta, timezone
-from typing import Any
+from typing import Any, ClassVar
 
 PBKDF2_ITERATIONS = 600_000
 SALT_SIZE = 16
@@ -19,9 +19,7 @@ SESSION_TIMEOUT_SEC = 900
 ACTION_LOGIN_SUCCESS = "login_success"
 ACTION_LOGIN_FAILURE = "login_failure"
 ACTION_LOGOUT = "logout"
-ALLOWED_ACTIONS = frozenset(
-    {ACTION_LOGIN_SUCCESS, ACTION_LOGIN_FAILURE, ACTION_LOGOUT}
-)
+ALLOWED_ACTIONS = frozenset({ACTION_LOGIN_SUCCESS, ACTION_LOGIN_FAILURE, ACTION_LOGOUT})
 
 # Локальна частина: літера + ще 2..63 символи (разом 3-64), домен із крапкою.
 EMAIL_RE = re.compile(r"[A-Za-z][A-Za-z0-9_]{2,63}@(?:[A-Za-z0-9-]+\.)+[A-Za-z0-9-]+")
@@ -170,7 +168,7 @@ class AuditLog:
 class UserAccount:
     """Композиція: обліковий запис складається з User, Session та AuditLog."""
 
-    _KEY_TYPES: dict[str, tuple[type, ...]] = {
+    _KEY_TYPES: ClassVar[dict[str, tuple[type, ...]]] = {
         "user": (User,),
         "session": (Session, type(None)),
         "audit_log": (AuditLog,),
@@ -198,9 +196,7 @@ class UserAccount:
         return True
 
     def is_authenticated(self) -> bool:
-        return self.session is not None and self.session.is_active(
-            SESSION_TIMEOUT_SEC
-        )
+        return self.session is not None and self.session.is_active(SESSION_TIMEOUT_SEC)
 
     def logout(self) -> bool:
         if self.session is None:

@@ -1,7 +1,7 @@
 import os
 import sys
 
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../../')))
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../../")))
 
 import task1
 import task2
@@ -12,7 +12,9 @@ from shared.student import GROUP_NAME, STUDENT_NAME, VARIANT_NUMBER
 
 def main() -> None:
     print("=" * 70)
-    print(f"Лабораторна робота №1 | {STUDENT_NAME} | {GROUP_NAME} | Варіант {VARIANT_NUMBER}")
+    print(
+        f"Лабораторна робота №1 | {STUDENT_NAME} | {GROUP_NAME} | Варіант {VARIANT_NUMBER}"
+    )
     print("=" * 70)
 
     print("\n### ЗАВДАННЯ 1: Аналізатор надійності паролів ###")
@@ -27,6 +29,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-
-
-    

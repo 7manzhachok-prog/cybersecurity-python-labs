@@ -1,21 +1,47 @@
 import os
 import sys
 
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../../')))
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../../")))
 
 users = {
-    "sysadmin02": {"role": "system_admin", "clearance": 4, "department": "Infrastructure", "active": True},
-    "analyst234": {"role": "security_analyst", "clearance": 3, "department": "SOC", "active": True},
-    "developer567": {"role": "developer", "clearance": 2, "department": "Development", "active": True},
+    "sysadmin02": {
+        "role": "system_admin",
+        "clearance": 4,
+        "department": "Infrastructure",
+        "active": True,
+    },
+    "analyst234": {
+        "role": "security_analyst",
+        "clearance": 3,
+        "department": "SOC",
+        "active": True,
+    },
+    "developer567": {
+        "role": "developer",
+        "clearance": 2,
+        "department": "Development",
+        "active": True,
+    },
     "intern890": {"role": "intern", "clearance": 1, "department": "HR", "active": True},
-    "external123": {"role": "external", "clearance": 1, "department": "Vendor", "active": False}
+    "external123": {
+        "role": "external",
+        "clearance": 1,
+        "department": "Vendor",
+        "active": False,
+    },
 }
 
 resources = [
-    ("prod_database", 4), ("dev_environment", 2), ("documentation", 1),
-    ("source_code", 3), ("server_configs", 4), ("test_data", 2),
-    ("compliance_docs", 3), ("system_logs", 4), ("project_files", 2),
-    ("public_wiki", 1)
+    ("prod_database", 4),
+    ("dev_environment", 2),
+    ("documentation", 1),
+    ("source_code", 3),
+    ("server_configs", 4),
+    ("test_data", 2),
+    ("compliance_docs", 3),
+    ("system_logs", 4),
+    ("project_files", 2),
+    ("public_wiki", 1),
 ]
 
 security_levels = ("Open", "Internal", "Restricted", "Top Secret")

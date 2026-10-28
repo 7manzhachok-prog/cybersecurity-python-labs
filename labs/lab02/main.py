@@ -8,8 +8,8 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 
-from labs.lab02 import task2  # noqa: E402
-from labs.lab02.task1 import run_demo  # noqa: E402
+from labs.lab02 import task2
+from labs.lab02.task1 import run_demo
 
 
 def build_parser() -> argparse.ArgumentParser:

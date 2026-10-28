@@ -2,12 +2,22 @@ import os
 import random
 import sys
 
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../../')))
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../../")))
 
 from shared.student import STUDENT_NAME, VARIANT_NUMBER
 
-passwords = ["Hello123!", "simple", "CompL3x@Pass", "password", "Str0ng#2023",
-"weak", "MySecur3!", "12345", "Advanced@1", "basic"]
+passwords = [
+    "Hello123!",
+    "simple",
+    "CompL3x@Pass",
+    "password",
+    "Str0ng#2023",
+    "weak",
+    "MySecur3!",
+    "12345",
+    "Advanced@1",
+    "basic",
+]
 criteria = {
     "min_length": 10,
     "require_lower": True,
